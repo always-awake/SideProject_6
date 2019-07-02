@@ -64,3 +64,41 @@
     - Refactoring
         + 코드를 리팩터링해서 이해할 수 있는 코드로 만든다.
         + 테스트는 그대로인 상태에서 내부 구현이 바뀌게 된다.
+
+### REST API
+* [TIL에 정리한 REST API 링크](https://github.com/always-awake/TIL/blob/master/REST/1_REST_API.md)
+* Resource의 분류
+    - Collection
+        + Read(List): 리소스 리스트를 읽어 온다.
+        + Create: 새로운 리소스를 만든다.
+    - Member
+        + Read(Detail): 리소스 개별 정보를 읽어 온다.
+        + Update: 개별 리소스를 수정한다.
+        + Delete: 개별 리소스를 삭제한다.
+    - 예시
+        + Collection: http://host/restaurants
+        + Member: http://host/restaurants/{id}
+* JSON (JavaScript Object Notation)
+    - JSON은 경량(Lightweight)의 DATA-교환 형식이다.
+    - Javascript에서 객체를 만들 때 사용하는 표현식을 의미한다.
+    - JSON 표현식은 사람과 기계 모두 이해하기 쉬우며 용량이 작아서, 최근에는 JSON이 XML을 대체해서 데이터 전송 등에 많이 사용한다.
+    - **특정 언어에 종속되지 않으며**, 대부분의 프로그래밍 언어에서 JSON 포맷의 데이터를 핸들링 할 수 있는 라이브러리를 제공한다.
+```
+{
+    "id": 2019,
+    "name": "식당",
+    "address": "골목"
+}
+```
+* 사용 예
+    - 가게 목록 (Collection GET)
+        + GET /restaurants
+    - 가게 상세 (Member GET)
+        + GET /restaurants/{id}
+    - 가게 추가
+        + POST /restaurants
+    - 가게 수정
+        + PUT /restaurants/{id}
+        + PATCH /restaurants/{id}
+    - 가게 삭제
+        + DELETE /restaurants/{id}
