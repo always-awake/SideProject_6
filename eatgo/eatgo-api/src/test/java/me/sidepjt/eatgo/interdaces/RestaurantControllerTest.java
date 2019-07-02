@@ -20,7 +20,7 @@ public class RestaurantControllerTest {
     private MockMvc mvc;
 
     @Test
-    public void getRestaurantGroup() throws Exception {
+    public void getGroupRestaurantTest() throws Exception {
         mvc.perform(get("/restaurants"))
                 .andExpect(status().isOk())
                 .andExpect(content().string(
@@ -30,6 +30,30 @@ public class RestaurantControllerTest {
                         containsString("\"id\":1004")
                 ));
 
+    }
+
+    @Test
+    public void getDetailRestaurantTest() throws Exception {
+        mvc.perform(get("/restaurants/1004"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(
+                        containsString("\"name\":\"Bob zip\"")
+                ))
+                .andExpect(content().string(
+                        containsString("\"id\":1004")
+                ));
+    }
+
+    @Test
+    public void getDetailRestaurantTest2() throws Exception {
+        mvc.perform(get("/restaurants/2020"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(
+                        containsString("\"name\":\"Cyber Food\"")
+                ))
+                .andExpect(content().string(
+                        containsString("\"id\":2020")
+                ));
     }
 
 }
